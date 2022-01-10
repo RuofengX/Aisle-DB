@@ -2,6 +2,8 @@ version: '3'
 services:
   mysql8:
     image: mysql:8
+    env_file:
+      - .env
     ports:
       - 3306:3306
     volumes:
