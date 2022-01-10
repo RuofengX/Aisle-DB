@@ -7,7 +7,7 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - more.cnf:/etc/mysql/conf.d/more.cnf:ro
+      - ./more.cnf:/etc/mysql/conf.d/more.cnf:ro
       - type: volume
         source: db-volume
         target: /mnt/db-data
