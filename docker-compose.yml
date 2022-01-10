@@ -1,0 +1,18 @@
+version: '3'
+services:
+  mysql8:
+    image: mysql:8
+    ports:
+      - 3306:3306
+    volumes:
+      - type: volume
+        source: db-volume
+        target: /mnt/db-data
+        volume:
+          nocopy: true
+volumes:
+  db-volume:
+    driver_opts:
+      type: "nfs"
+      o: "addr=10.206.16.4,nolock,soft,rw"
+      device: ":/ljvuvwv7"
