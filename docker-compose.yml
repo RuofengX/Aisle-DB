@@ -4,10 +4,12 @@ services:
     image: mysql:8
     env_file:
       - settings
+    cap_add:
+      - SYS_NICE
     ports:
       - 3306:3306
     volumes:
-      - ./my.cnf:/etc/mysql/my.cnf:ro
+      - ./my.cnf:/etc/mysql/my.cnf:ro  # only in this way could change default auth plugin!
       - type: volume
         source: db-volume
         target: /mnt/db-data
